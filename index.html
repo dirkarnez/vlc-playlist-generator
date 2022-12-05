@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/x2js/1.2.0/xml2json.min.js"
+        integrity="sha512-HX+/SvM7094YZEKOCtG9EyjRYvK8dKlFhdYAnVCGNxMkA59BZNSZTZrqdDlLXp0O6/NjDb1uKnmutUeuzHb3iQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <script>
+        // real example, generate VLC Player.xspf playlist file
+        console.log(new X2JS().json2xml_str(
+            {
+                'playlist': {
+                    "_xmlns": "http://xspf.org/ns/0/",
+                    "_xmlns:vlc": "http://www.videolan.org/vlc/playlist/ns/0/",
+                    "_version": "1",
+                    "title": "Playlist",
+                    "trackList": [
+                        {
+                            "track": {
+                                "location": "http://rthkaudio4-lh.akamaihd.net/i/radio4_1@355867/master.m3u8",
+                                "duration": 30000,
+                                "extension": {
+                                    "_application": "http://www.videolan.org/vlc/playlist/0",
+                                    "id" : {
+                                        __prefix : 'vlc',
+                                        __text : '1'
+                                    },
+                                    "option" : {
+                                        __prefix : 'vlc',
+                                        __text : 'network-caching=1000'
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }));
+    </script>
+</body>
+
+</html>
